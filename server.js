@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
 // Load models file into mongoose
 require("./models");
 
-const PORT = process.env.PORT || 3030;
+const PORT = process.env.PORT || 3080;
 
 // Create express server
 const app = express();
@@ -20,8 +20,16 @@ app.use(express.json());
 app.use(express.static("public"));
 
 // Connection to mongoose
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { useNewUrlParser: true }, { useUnifiedTopology: true });
-
+mongoose.connect(
+  process.env.MONGODB_URI || 'mongodb://localhost:workout',
+  { 
+    useNewUrlParser: true, 
+    useUnifiedTopology: true 
+  },
+     (error) => {
+    const connectionStatus = !error ? 'Success': 'Error Connecting to database';
+    console.log(connectionStatus);
+});
 // Parse application body as JSON
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
