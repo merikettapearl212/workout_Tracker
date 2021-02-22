@@ -23,8 +23,10 @@ app.use(express.static("public"));
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost:workout',
   { 
-    useNewUrlParser: true, 
-    useUnifiedTopology: true 
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
   },
      (error) => {
     const connectionStatus = !error ? 'Success': 'Error Connecting to database';
@@ -40,5 +42,5 @@ app.use(require("./routes/htmlRoutes.js"));
 
 // Start our server so that it can begin listening to client requests.
 app.listen(PORT, () => {
-  console.log(`Aligator listening on: http://localhost: ${PORT}!`);
+  console.log("Aligator listening on: http://localhost:" + PORT);
 });
