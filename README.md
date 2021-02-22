@@ -31,7 +31,7 @@ This application required creating a Mongo database with a Mongoose schema and h
 [Workout Tracker](https://warm-meadow-80270.herokuapp.com/)
 
 #### Screenshot of application:
-<img src="Assets/images/fitTrackerscreenshot.png" width="400" height="300">
+<img src="Assets/images/fitTrackerscreenshot.png" width="450" height="250">
 
 
 ## Questions
